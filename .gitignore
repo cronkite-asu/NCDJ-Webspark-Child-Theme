@@ -150,3 +150,6 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+
+# PHP
+.php-cs-fixer.cache
