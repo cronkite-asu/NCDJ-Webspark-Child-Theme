@@ -36,7 +36,12 @@ $wp_query->is_archive = true;
 $wp_query->is_home = false;
 ?>
 
-	 <?php posts_nav_link($sep, $prelabel, $nextlabel);?>
+	 <?php
+       $sep       = isset($sep) ? $sep : '';
+       $prelabel  = isset($prelabel) ? $prelabel : '';
+       $nextlabel = isset($nextlabel) ? $nextlabel : '';
+       posts_nav_link($sep, $prelabel, $nextlabel)
+     ?>
 
 
 
