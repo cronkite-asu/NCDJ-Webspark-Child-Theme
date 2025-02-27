@@ -97,26 +97,26 @@ if ( is_array( get_option( 'wordpress_asu_theme_options' ) ) ) {
         ob_start();
 
         $wrapper  = <<<HTML
-          <li class="dropdown" id="%s" class="%s">
-            <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-              <i class="fa fa-bars"></i>
-            </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li class="dropdown-title">{$parent_blog_name}</li>
-              %s
-            </ul>
-          </li>
-HTML;
+                      <li class="dropdown" id="%s" class="%s">
+                        <a id="drop1" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                          <li class="dropdown-title">{$parent_blog_name}</li>
+                          %s
+                        </ul>
+                      </li>
+            HTML;
 
         wp_nav_menu(
-            array(
+            [
               'menu'              => 'primary',
               'theme_location'    => 'primary',
               'depth'             => 1,
               'container'         => null,
               'walker'            => new WP_Bootstrap_Dropdown_Navwalker(),
               'items_wrap'        => $wrapper,
-            )
+            ]
         );
         $subsite_menu = ob_get_contents();
         ob_end_clean();
@@ -274,7 +274,7 @@ HTML;
           $wrapper .= '</ul>';
 
           wp_nav_menu(
-              array(
+              [
                 'menu'              => 'primary',
                 'theme_location'    => 'primary',
                 'depth'             => 3,
@@ -285,7 +285,7 @@ HTML;
                 'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
                 'walker'            => new WP_Bootstrap_Navwalker(),
                 'items_wrap'        => $wrapper,
-              )
+              ]
           );
           ?>
           </div><!-- /.navbar-collapse -->

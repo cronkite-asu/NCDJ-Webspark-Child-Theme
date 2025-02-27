@@ -25,7 +25,7 @@ class Custom_Bootstrap_Navwalker extends Walker_Nav_Menu {
    * @param string $output Passed by reference. Used to append additional content.
    * @param int $depth Depth of page. Used for padding.
    */
-  public function start_lvl( &$output, $depth = 0, $args = array() ) {
+  public function start_lvl( &$output, $depth = 0, $args = [] ) {
     $indent = str_repeat( "\t", $depth );
 
     if ( 0 == $depth ) {
@@ -47,7 +47,7 @@ class Custom_Bootstrap_Navwalker extends Walker_Nav_Menu {
     }
   }
 
-  public function end_lvl( &$output, $depth = 0, $args = array() ) {
+  public function end_lvl( &$output, $depth = 0, $args = [] ) {
     if ( $depth === $this->mega_menu_flag ) {
       $output .= "\n</div>\n</div>\n</li>\n</ul>";
       $this->mega_menu_flag = false;
@@ -66,7 +66,7 @@ class Custom_Bootstrap_Navwalker extends Walker_Nav_Menu {
    * @param int $current_page Menu item ID.
    * @param object $args
    */
-  public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+  public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
     $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
     /**
@@ -90,7 +90,7 @@ class Custom_Bootstrap_Navwalker extends Walker_Nav_Menu {
     } else {
       $class_names = $value = '';
 
-      $classes   = empty( $item->classes ) ? array() : (array) $item->classes;
+      $classes   = empty( $item->classes ) ? [] : (array) $item->classes;
       $classes[] = 'menu-item-' . $item->ID;
 
       // Add the mega menu class if your children have children
@@ -145,7 +145,7 @@ class Custom_Bootstrap_Navwalker extends Walker_Nav_Menu {
         return;
       }
 
-      $atts = array();
+      $atts = [];
       $atts['title']  = ! empty( $item->title ) ? $item->title  : '';
       $atts['target'] = ! empty( $item->target )  ? $item->target : '';
       $atts['rel']    = ! empty( $item->xfn )   ? $item->xfn  : '';
@@ -197,7 +197,7 @@ class Custom_Bootstrap_Navwalker extends Walker_Nav_Menu {
     }
   }
 
-  public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+  public function end_el( &$output, $item, $depth = 0, $args = [] ) {
     if ( 1 === $depth && $args->depth > 2 ) {
       return;
     }

@@ -39,9 +39,9 @@ $wp_query->is_home = false;
 ?>
 
 	 <?php
-       $sep       = isset($sep) ? $sep : '';
-       $prelabel  = isset($prelabel) ? $prelabel : '';
-       $nextlabel = isset($nextlabel) ? $nextlabel : '';
+       $sep ??= '';
+       $prelabel ??= '';
+       $nextlabel ??= '';
        posts_nav_link($sep, $prelabel, $nextlabel)
      ?>
 

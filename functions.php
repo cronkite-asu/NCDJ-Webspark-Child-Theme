@@ -5,18 +5,20 @@
 function ncdj_enqueue_styles() {
 	$parent_style = 'ASU-Web-Standards-Wordpress-Theme';
 	wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
-	wp_enqueue_style( 'ncdj-child-theme',
-		get_stylesheet_directory_uri() . '/style.css',
-		array( $parent_style ),
-		wp_get_theme()->get('Version')
+	wp_enqueue_style(
+	    'ncdj-child-theme',
+	    get_stylesheet_directory_uri() . '/style.css',
+	    [ $parent_style ],
+	    wp_get_theme()->get('Version')
 	);
 }
 add_action( 'wp_enqueue_scripts', 'ncdj_enqueue_styles' );
 
 function create_posttype() {
-	register_post_type( 'blog',
-	  array(
-		'labels' => array(
+	register_post_type(
+	    'blog',
+	    [
+		'labels' => [
 		  'name' => __( 'Blog' ),
 		  'singular_name' => __( 'Blog' ),
 		  'menu_name'           => __('Blog'),
@@ -30,12 +32,12 @@ function create_posttype() {
 		  'search_items'        => __('Search Blog'),
 		  'not_found'           => __('Not found'),
 		  'not_found_in_trash'  => __('Not found in trash'),
-		),
+		],
 		'public' => true,
 		'has_archive' => true,
-		'rewrite' => array('slug'=>'/blog/'.date('Y').'/'.date('m'),'with_front'=>true),
-		'supports'            => array('title', 'editor', 'excerpt', 'thumbnail','wpcom-markdown', 'revisions'),
-		'taxonomies'          => array('category'),
+		'rewrite' => ['slug'=>'/blog/'.date('Y').'/'.date('m'),'with_front'=>true],
+		'supports'            => ['title', 'editor', 'excerpt', 'thumbnail','wpcom-markdown', 'revisions'],
+		'taxonomies'          => ['category'],
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -44,14 +46,14 @@ function create_posttype() {
 		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
-		'capability_type'     => 'post'
-	  )
+		'capability_type'     => 'post',
+	  ]
 	);
   }
   add_action( 'init', 'create_posttype' );
 
 register_sidebar(
-	array(
+    [
 	'name'          => __( 'sidebar-contest', 'ncdj-child-theme' ),
 	'id'            => 'contest',
 	'description'   => '',
@@ -59,11 +61,11 @@ register_sidebar(
 	'after_widget'  => '</aside>',
 	'before_title'  => '<h3 class="widget-title">',
 	'after_title'   => '</h3>',
-	)
+	]
 );
 
 register_sidebar(
-	array(
+    [
 	'name'          => __( 'sidebar-news', 'ncdj-child-theme' ),
 	'id'            => 'news',
 	'description'   => '',
@@ -71,11 +73,11 @@ register_sidebar(
 	'after_widget'  => '</aside>',
 	'before_title'  => '<h3 class="widget-title">',
 	'after_title'   => '</h3>',
-	)
+	]
 );
 
 register_sidebar(
-	array(
+    [
 	'name'          => __( 'sidebar-resources', 'ncdj-child-theme' ),
 	'id'            => 'resources',
 	'description'   => '',
@@ -83,11 +85,11 @@ register_sidebar(
 	'after_widget'  => '</aside>',
 	'before_title'  => '<h3 class="widget-title">',
 	'after_title'   => '</h3>',
-	)
+	]
 );
 
 register_sidebar(
-	array(
+    [
 	'name'          => __( 'sidebar-about', 'ncdj-child-theme' ),
 	'id'            => 'about',
 	'description'   => '',
@@ -95,12 +97,12 @@ register_sidebar(
 	'after_widget'  => '</aside>',
 	'before_title'  => '<h3 class="widget-title">',
 	'after_title'   => '</h3>',
-	)
+	]
 );
 
 
 register_sidebar(
-	array(
+    [
 	'name'          => __( 'sidebar-styleguide', 'ncdj-child-theme' ),
 	'id'            => 'styleguide',
 	'description'   => '',
@@ -108,5 +110,5 @@ register_sidebar(
 	'after_widget'  => '</aside>',
 	'before_title'  => '<h3 class="widget-title">',
 	'after_title'   => '</h3>',
-	)
+	]
 );
