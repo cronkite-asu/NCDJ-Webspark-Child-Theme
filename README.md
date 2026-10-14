@@ -34,4 +34,4 @@ This theme predates the block editor and current ASU design systems. Before depl
 
 ## License
 
-GPL-2.0-or-later, as declared in [`style.css`](style.css).
+GPL-2.0-or-later. See [`LICENSE`](LICENSE).
